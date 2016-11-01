@@ -1,0 +1,97 @@
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+	<title>Comparación Musimundo 2015</title>
+	<meta charset="utf-8">
+	<meta name="theme-color" content="#222222" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="La verdadera diferencia entre los precios.">
+	<meta name="author" content="Domingo Dominguez">
+	<link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.css">
+	<style>
+		body {
+			padding-top: 50px;
+			/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+		}
+		
+		.hero-spacer {
+			margin-top: 20px;
+		}
+		
+		.hero-feature {
+			margin-bottom: 30px;
+		}
+		
+		footer {
+			margin: 50px 0;
+		}
+		
+		thead > tr {
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+						</button>
+				<a class="navbar-brand" href="/">CyberMonday 2016</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="mailto:ciberlunes@cock.li">Dudas? Quejas? | ciberlunes@cock.li</a>
+					</li>
+					<li>
+						<a href="https://github.com/ciberlunes">Mirá el código en Github</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+	<div>
+		<div ng-controller="ProdsCtrl" class="container">
+			<h1 class="text-primary">Precios del CyberMonday Musimundo 2016</h1>
+
+				<p>Cantidad total de productos: {{total_productos}}
+				<p><label>Filtro de productos: <input ng-model="searchText" ng-change="updateFilteredList()" capitalize></label></p>
+				<table at-table at-list="filteredList" at-paginated class="table" at-config="config">
+					<thead></thead>
+					<tbody>
+						<tr ng-class="{'danger': item.pr < 0, 'success': item.pr >= 25}">
+							<td at-attribute="i" at-title="Producto" at-sortable at-initial-sorting="asc"><a href="{{item.l}}">{{item.i}}</a></td>
+							<td at-attribute="or" at-title="Precio Octubre" at-sortable>${{item.or | number}}</td>
+							<td at-attribute="cm" at-title="Precio CyberMonday" at-sortable>${{item.cm | number:0}}</td>
+							<td at-attribute="s" at-title="Supuesto precio anterior" at-sortable>${{item.s | number}}</td>
+							<td at-attribute="pv" at-title='"Oferta" CyberMonday' at-sortable>{{item.pv}}%</td>
+							<td at-attribute="pr" at-title="Oferta real" at-sortable>{{item.pr}}%</td>
+						</tr>
+					</tbody>
+				</table>
+				<at-pagination at-list="filteredList" at-config="config"></at-pagination>
+		</div>
+	</div>
+	
+	<script>var sourceUrl = "./musimundo_cm_2016.json";</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.29/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="./js/angular-table.min.js"></script>
+	<script src="./js/app.js"></script>
+	<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-84072213-2', 'auto');ga('send', 'pageview');</script>
+</body>
+
+</html>
