@@ -20,7 +20,8 @@ angular.module('myApp', ['angular-table'])
 		
 		vm.config = {
 			itemsPerPage: 20,
-			fillLastPage: true
+			fillLastPage: true,
+			maxPages: 10
 		};
 
 		vm.updateFilteredList = function() {
