@@ -4,12 +4,19 @@ angular.module('myApp', ['angular-table'])
 		var vm = $scope;
 		vm.products = [];
 
+		vm.local = "Garbarino";
+
 		vm.filteredList = vm.products;
+
+		vm.changeStore = function(source, store){
+			vm.loadProducts(source);
+			vm.local = store;
+		}
 	
-		vm.loadProducts = function() {
+		vm.loadProducts = function(source) {
 			var httpRequest = $http({
 				method: 'GET',
-				url: sourceUrl,
+				url: source,
 				data: ''
 			}).success(function(data, status) {
 				vm.products = data;
@@ -28,7 +35,7 @@ angular.module('myApp', ['angular-table'])
 			vm.filteredList = $filter("filter")(vm.products, vm.searchText);
 		}
 		
-		vm.loadProducts();
+		vm.loadProducts(sourceUrl);
 
 }]).directive('capitalize', function() {
     return {
