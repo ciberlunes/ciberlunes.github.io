@@ -65,8 +65,8 @@
 
       </div>
       <h1 class="text-primary">Precios del HotSale {{local}} 2017</h1>
-			<p>Cantidad total de productos: {{total_productos}}
-				<p><label>Filtro de productos: <input ng-model="searchText" ng-change="updateFilteredList()" capitalize></label></p>
+			<p>Productos en total: {{total_productos}}
+				<p><label>Búsqueda: <input ng-model="searchText" ng-change="updateFilteredList()" capitalize></label></p>
 				<table at-table at-list="filteredList" at-paginated class="table" at-config="config">
 					<thead></thead>
 					<tbody>
@@ -81,6 +81,7 @@
 					</tbody>
 				</table>
 				<at-pagination at-list="filteredList" at-config="config"></at-pagination>
+				<p><strong>No te olvides que todas estas empresas pueden cambiar sus precios sin previo aviso. Si encontrás diferencias de precio con mi lista, es algo normal.</strong></p>
 				<footer id="footer">
 				</footer>
 		</div>
