@@ -22,6 +22,8 @@ angular.module('myApp', ['angular-table'])
 				vm.products = data;
 				vm.filteredList = data;
 				vm.total_productos = data.length;
+				if (vm.searchText)
+					vm.updateFilteredList();
 			});
 		};
 		

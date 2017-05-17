@@ -50,8 +50,8 @@
 							<td at-attribute="item" at-title="Producto" at-sortable at-initial-sorting="asc"><a href="{{item.link}}">{{item.item}}</a></td>
 							<td at-attribute="precio_orig" at-title="Precio Octubre" at-sortable>${{item.precio_orig | number}}</td>
 							<td at-attribute="precio_cybermonday" at-title="Precio CyberMonday" at-sortable>${{item.precio_cybermonday | number:0}}</td>
-							<td at-attribute="precio_supuesto" at-title="Supuesto precio anterior" at-sortable>${{item.precio_supuesto | number}}</td>
-							<td at-attribute="oferta_virtual_porc" at-title='"Oferta" CyberMonday' at-sortable>{{item.oferta_virtual_porc}}%</td>
+							<td at-attribute="precio_supuesto" at-title="Precio lista CyberMonday" at-sortable>${{item.precio_supuesto | number}}</td>
+							<td at-attribute="oferta_virtual_porc" at-title='Oferta CyberMonday' at-sortable>{{item.oferta_virtual_porc}}%</td>
 							<td at-attribute="oferta_real_porc" at-title="Oferta real" at-sortable>{{item.oferta_real_porc}}%</td>
 						</tr>
 					</tbody>
